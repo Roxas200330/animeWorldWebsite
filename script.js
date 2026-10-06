@@ -35,6 +35,8 @@ const cart = [
     products[3]
 ];
 
+let cartCount = 0;
+
 const totalPrice = cart.reduce((total, product) => total + product.price, 0);
 
 const names = products.map(product => product.name);
@@ -45,5 +47,22 @@ const animeFilter = products.filter(product => product.anime === "One Piece");
 
 const stockFilter = products.filter(product => product.stock > 10);
 
-console.log(stockFilter);
-//console.log(animeFilter); 
+const displayProducts = document.getElementById("product-list");
+
+
+function displayCartCount() {
+    cartCount++;
+    const cartCountElement = document.getElementById("cart-count");
+    cartCountElement.textContent = `Cart Count: ${cartCount}`;
+}
+
+for (let i = 0; i < products.length; i++) {
+    const button = document.createElement("button");
+    button.textContent = "Add to Cart";
+    button.addEventListener("click", displayCartCount);
+    displayProducts.innerHTML += `${products[i].name}`;
+    displayProducts.appendChild(button);
+}
+    
+
+
