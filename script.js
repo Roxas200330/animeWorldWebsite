@@ -31,6 +31,8 @@ const products = [
 
 const cart = [];
 
+const newStock = [];
+
 
 //let cartCount = 0;
 
@@ -46,12 +48,13 @@ const stockFilter = products.filter(product => product.stock > 10);
 
 const displayProducts = document.getElementById("product-list");
 
-function totalPrice() {
+
+/*function totalPrice() {
     const total = cart.reduce((total, product) => total + product.price, 0);
     return total;
-}
+}*/
 
-function displayCartCount(total) {
+/*function displayEverything(total) {
     //cartCount++;
     const cartCountElement = document.getElementById("cart-count");
     cartCountElement.textContent = `In Cart: ${cart.length}`;
@@ -59,22 +62,54 @@ function displayCartCount(total) {
     totalElement.textContent = `Total Price: QR ${total.toFixed(2)}`;
     const totalInCartElement = document.getElementById("In Cart:");
     totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
-}
+}*/
 
 for (let i = 0; i < products.length; i++) {
+
     const productElement = document.createElement("div");
     productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
     displayProducts.appendChild(productElement);
     const button = document.createElement("button");
     button.textContent = "Add to Cart";
     button.addEventListener("click", () => {
+        //console.log(total)
+        if(products[i].stock > 0){
+        products[i].stock--;
         cart.push(products[i]);
-        displayCartCount(totalPrice());
+        const total = cart.reduce((total, product) => total + product.price, 0);
+        const totalElement = document.getElementById("Total");
+        totalElement.textContent = `Total Price: QR ${total.toFixed(2)}`;
+        console.log(total)
+        }
+
+ 
         
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.textContent = `In Cart: ${cart.length}`;
+        const totalInCartElement = document.getElementById("In Cart:");
+        totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
+        
+
+        if (products[i].stock > 0) {
+        const totalStockElement = document.getElementById("Stock");
+        totalStockElement.textContent = `Stock: ${products[i].stock}`
+        }
+
+        else if (products[i].stock <= 0) {
+            const totalStockElement = document.getElementById("Stock");
+            totalStockElement.textContent = `Sorry this item is out of stock`;
+        }
+            
     });
     displayProducts.appendChild(button);
-   
+
 }
+
+
+
+
+
+
 
     
 
