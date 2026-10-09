@@ -51,20 +51,3 @@ h1{
 .navbar li{
     float: left;
 }
-.btns{
-    display: flex;
-}
-.btn{
-    padding: 0;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
-    background: #252323;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn:hover{
-    background:#070606
-}
