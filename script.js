@@ -29,7 +29,10 @@ const products = [
     }
 ]
 
-const cart = [];
+const cart = [
+    products[1],
+    products[2],
+];
 
 const newStock = [];
 
@@ -49,6 +52,7 @@ const stockFilter = products.filter(product => product.stock > 10);
 const displayProducts = document.getElementById("product-list");
 
 
+
 /*function totalPrice() {
     const total = cart.reduce((total, product) => total + product.price, 0);
     return total;
@@ -64,8 +68,9 @@ const displayProducts = document.getElementById("product-list");
     totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
 }*/
 
-for (let i = 0; i < products.length; i++) {
 
+
+for (let i = 0; i < products.length; i++) {
     const productElement = document.createElement("div");
     productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
     displayProducts.appendChild(productElement);
@@ -79,7 +84,7 @@ for (let i = 0; i < products.length; i++) {
         const total = cart.reduce((total, product) => total + product.price, 0);
         const totalElement = document.getElementById("Total");
         totalElement.textContent = `Total Price: QR ${total.toFixed(2)}`;
-        console.log(total)
+        //console.log(total)
         }
 
  
@@ -87,7 +92,10 @@ for (let i = 0; i < products.length; i++) {
         const cartCountElement = document.getElementById("cart-count");
         cartCountElement.textContent = `In Cart: ${cart.length}`;
         const totalInCartElement = document.getElementById("In Cart:");
-        totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
+
+        if(cart.lenght == 0 ){
+            totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
+        }
         
 
         if (products[i].stock > 0) {
@@ -102,8 +110,26 @@ for (let i = 0; i < products.length; i++) {
             
     });
     displayProducts.appendChild(button);
-
 }
+
+for(let i = 0; i < cart.length; i++){
+       const button2 = document.createElement("button");
+       button2.textContent = "Remove";
+       document.getElementById("cart-items").appendChild(button2);
+       button2.addEventListener("click", () =>{
+       const inCart = cart.reduce((total, product) => total + product.name[1], 0);
+       //randomElement.textContent ='this test worked ';
+
+    
+})
+    }
+
+
+
+
+
+
+
 
 
 
@@ -112,5 +138,3 @@ for (let i = 0; i < products.length; i++) {
 
 
     
-
-
