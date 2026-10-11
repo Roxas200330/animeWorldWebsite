@@ -109,8 +109,8 @@ for (let i = 0; i < products.length; i++) {
         
         //console.log(total)
         if(products[i].stock > 0){
-        productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
         products[i].stock--;
+        productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
         cart.push(products[i]);
         displayCart();
         const total = cart.reduce((total, product) => total + product.price, 0);
@@ -127,6 +127,11 @@ for (let i = 0; i < products.length; i++) {
         else if (products[i].stock <= 0) {
             const totalStockElement = document.getElementById("Stock");
             totalStockElement.textContent = `Sorry this item is out of stock`;
+        }
+
+        else if (cart[i].stock > 0){
+            const updateOutStock = document.getElementById("Stock");
+            //cartItemsElement.innerHTML = ; 
         }
             
     });
