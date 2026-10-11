@@ -106,3 +106,12 @@ body{
     from {translate: 0;}
     to {translate: -100%;}
 }
+.wrapper{
+    min-height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.p{
+
+}
