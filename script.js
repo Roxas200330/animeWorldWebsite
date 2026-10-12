@@ -87,6 +87,10 @@ function displayCart(){
     
      }
 
+function filter(){
+
+}
+
 for (let i = 0; i < products.length; i++) {
     const productElement = document.createElement("div");
     const image = document.createElement("img");
@@ -95,14 +99,14 @@ for (let i = 0; i < products.length; i++) {
     displayProducts.appendChild(image);
     productElements[i] = productElement;
     productElement.textContent = 
-    `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
-    //productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
+    `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;    
     displayProducts.appendChild(productElement); 
     const button = document.createElement("button");
+    const filterButton = document.createElement("button");
+    filterButton.textContent = "Filter";
     addToCartElements[i] = button;
     button.textContent = "Add to Cart";
     button.addEventListener("click", () => {
-        const proIndex = products.Indexof;
         //console.log(total)
         if(products[i].stock > 0){
         products[i].stock--;
@@ -122,7 +126,12 @@ for (let i = 0; i < products.length; i++) {
         
         }
     });
+
+    filterButton.addEventListener("click", () => {
+
+    });
     displayProducts.appendChild(button);
+    displayProducts.appendChild(filterButton);
 }
 
 
