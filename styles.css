@@ -117,10 +117,19 @@ h1{
     transition: 0.3s;
 }
 
+.navbar a:focus{
+    outline:none;
+    background-color: #070606;
+}
+
 .navbar li{
     float: left;
 }
 
+.navbar li:focus{
+    outline: none;
+    background-color: #070606;
+}
 
 .btn:hover{
     background:#070606
@@ -218,6 +227,16 @@ h1{
     text-transform: uppercase;
 }
 
+.signup-btn:hover{
+    /*border: 2px solid #252323;*/
+    background-color: #56a7c7;
+}
+
+.signup-btn:focus{
+    outline: none;
+    background-color: #56a7c7;
+}
+
 .signup{
     text-transform: uppercase;
     font-size: 3rem;
@@ -261,7 +280,7 @@ form label{
 form input{
     border-radius: 0 10px 10px 0;
     border: 2px;
-    border-color: #252323;
+    border-color: #78b9d3;
     border-left: none;
     box-sizing: border-box;
     flex-grow: 1;
@@ -273,7 +292,7 @@ form input{
 }
 
 form input:hover{
-    border: 2px solid #252323;
+    border: 2px solid #78b9d3;
     border-left: none;
 }
 
