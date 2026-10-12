@@ -45,22 +45,6 @@ const stockFilter = products.filter(product => product.stock > 10);
 
 const displayProducts = document.getElementById("product-list");
 
-
-
-/*function totalPrice() {
-    const total = cart.reduce((total, product) => total + product.price, 0);
-    return total;
-}*/
-
-/*function displayEverything(total) {
-    //cartCount++;
-    const cartCountElement = document.getElementById("cart-count");
-    cartCountElement.textContent = `In Cart: ${cart.length}`;
-    const totalElement = document.getElementById("Total");
-    totalElement.textContent = `Total Price: QR ${total.toFixed(2)}`;
-    const totalInCartElement = document.getElementById("In Cart:");
-    totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
-}*/
 displayCart();
 function displayCart(){
     const cartItemsElement = document.getElementById("cart-items");
