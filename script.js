@@ -31,7 +31,9 @@ const products = [
 
 const cart = [];
 
-const newStock = [];
+const productElements = [];
+
+const addToCartElements = [];
 
 const names = products.map(product => product.name);
 
@@ -60,7 +62,6 @@ const displayProducts = document.getElementById("product-list");
     totalInCartElement.textContent = `In Cart: ${cart.map(product => product.name).join(", ")}`;
 }*/
 displayCart();
-
 function displayCart(){
     console.log("DISPLAYINg");
     const cartItemsElement = document.getElementById("cart-items");
@@ -79,9 +80,11 @@ function displayCart(){
         cart.splice(index,1)
         item.stock++;
         console.log(item.stock);
+        const productIndex = products.indexOf(item);
+        productElements[productIndex].textContent = 
+        `${item.name} - QR ${item.price} - ${item.anime} - ${item.category} - Stock: ${item.stock}`;
         displayCart();
-        const productElement = document.createElement("div");
-        productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${item.stock}`;  
+
      });
         
         itemElement.appendChild(button);
@@ -101,17 +104,20 @@ function displayCart(){
 
 for (let i = 0; i < products.length; i++) {
     const productElement = document.createElement("div");
-    productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
+    productElements[i] = productElement;
+    productElement.textContent = 
+    `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
+    //productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
     displayProducts.appendChild(productElement);
     const button = document.createElement("button");
     button.textContent = "Add to Cart";
     button.addEventListener("click", () => {
-        
         //console.log(total)
         if(products[i].stock > 0){
         products[i].stock--;
-        productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
         cart.push(products[i]);
+        productElement.textContent = 
+    `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
         displayCart();
         const total = cart.reduce((total, product) => total + product.price, 0);
         const totalElement = document.getElementById("Total");
@@ -127,16 +133,20 @@ for (let i = 0; i < products.length; i++) {
         else if (products[i].stock <= 0) {
             const totalStockElement = document.getElementById("Stock");
             totalStockElement.textContent = `Sorry this item is out of stock`;
+            button.disabled = true;
         }
 
-        else if (cart[i].stock > 0){
-            const updateOutStock = document.getElementById("Stock");
-            //cartItemsElement.innerHTML = ; 
+        else {
+        //const totalStockElement = document.getElementById("Stock");
+        //totalStockElement.textContent = `Stock: ${products[i].stock}` 
         }
             
     });
     displayProducts.appendChild(button);
 }
+
+
+
 
 
 
