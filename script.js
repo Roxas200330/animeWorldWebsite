@@ -63,7 +63,6 @@ const displayProducts = document.getElementById("product-list");
 }*/
 displayCart();
 function displayCart(){
-    console.log("DISPLAYINg");
     const cartItemsElement = document.getElementById("cart-items");
     cartItemsElement.innerHTML = "";
      for (let i = 0; i < cart.length; i ++){
@@ -81,8 +80,10 @@ function displayCart(){
         item.stock++;
         console.log(item.stock);
         const productIndex = products.indexOf(item);
+        addToCartElements[productIndex].disabled = false;
         productElements[productIndex].textContent = 
         `${item.name} - QR ${item.price} - ${item.anime} - ${item.category} - Stock: ${item.stock}`;
+
         displayCart();
 
      });
@@ -104,43 +105,38 @@ function displayCart(){
 
 for (let i = 0; i < products.length; i++) {
     const productElement = document.createElement("div");
+    const image = document.createElement("img");
+    productElement.classList.add("product-card");
+    image.src = "witch.png";
+    displayProducts.appendChild(image);
     productElements[i] = productElement;
     productElement.textContent = 
     `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
     //productElement.textContent = `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;  
-    displayProducts.appendChild(productElement);
+    displayProducts.appendChild(productElement); 
     const button = document.createElement("button");
+    addToCartElements[i] = button;
     button.textContent = "Add to Cart";
     button.addEventListener("click", () => {
+        const proIndex = products.Indexof;
         //console.log(total)
         if(products[i].stock > 0){
         products[i].stock--;
+           if(products[i].stock === 0){
+          productElement.textContent = 
+         `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: This Item is out of stock!`;
+         button.disabled = true; 
+        } else {
         cart.push(products[i]);
         productElement.textContent = 
-    `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
+        `${products[i].name} - QR ${products[i].price} - ${products[i].anime} - ${products[i].category} - Stock: ${products[i].stock}`;
         displayCart();
         const total = cart.reduce((total, product) => total + product.price, 0);
         const totalElement = document.getElementById("Total");
         totalElement.textContent = `Total Price: QR ${total.toFixed(2)}`;
-        //console.log(total)
         }
-
-        if (products[i].stock > 0) {
-        const totalStockElement = document.getElementById("Stock");
-        totalStockElement.textContent = `Stock: ${products[i].stock}`
+        
         }
-
-        else if (products[i].stock <= 0) {
-            const totalStockElement = document.getElementById("Stock");
-            totalStockElement.textContent = `Sorry this item is out of stock`;
-            button.disabled = true;
-        }
-
-        else {
-        //const totalStockElement = document.getElementById("Stock");
-        //totalStockElement.textContent = `Stock: ${products[i].stock}` 
-        }
-            
     });
     displayProducts.appendChild(button);
 }
