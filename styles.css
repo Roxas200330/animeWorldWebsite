@@ -51,12 +51,12 @@ h1{
 }
 
 .navbar{
+    flex-grow: 1;
     width: 100%;
+    height: 80px;
     padding: 1rem 5%;
-    background: #252323;
-    border-bottom: 1px solid #471616;
-    margin-bottom: 2rem;
-    
+    background: 100% #252323;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,6 +73,7 @@ h1{
     background-color: #252323;
     padding: 0;
     margin: 0;
+    margin-right: auto;
     overflow: hidden;
 }
 
@@ -156,9 +157,9 @@ h1{
     /*background-color: #252323;*/
     border: 8px solid black;
     border-radius: 20px;
-    width: max(50%, 600px);
-    height: 600px;
-    display:flex;
+    width: max(40%, 600px);
+    height: calc(100dvh - 140px);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -174,9 +175,9 @@ h1{
     /*background-color: #252323;*/
     border: 8px solid black;
     border-radius: 20px;
-    width: max(50%, 600px);
-    height: 600px;
-    display:flex;
+    width: max(40%, 600px);
+    height: calc(100dvh - 140px);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -203,6 +204,7 @@ h1{
 .signup-btn:hover{
     /*border: 2px solid #252323;*/
     background-color: #56a7c7;
+    transition: 150ms ease;
 }
 
 .signup-btn:focus{
@@ -275,13 +277,31 @@ form input:focus{
     outline: none;
     border-color: #252323;
 }
+
 div:has(input:focus) > label{
     background-color: #252323;
     border: 2px solid #252323;
     border-right: none;
 }
+
 form input::placeholder{
     color: #252323;
     opacity: 0.8;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1100px){
+    .wrapper{
+        width: min(600px, 100%)
+    }
+    .wrapper2{
+        width: min(600px, 100%)
+    }
+}
