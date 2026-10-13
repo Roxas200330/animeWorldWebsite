@@ -305,3 +305,5 @@ a:hover{
         width: min(600px, calc(100% - 60px));
     }
 }
+
+@import url(cart.css)
