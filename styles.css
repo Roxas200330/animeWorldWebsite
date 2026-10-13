@@ -80,6 +80,7 @@ h1{
 .navbar a{
     color: white;
     text-decoration: none;
+    height: 50px;
     padding: 15px;
     display: block;
     text-align: center;
@@ -293,7 +294,7 @@ a{
     text-decoration: none;
 }
 
-a:hover{
+.wrapper a:hover{
     text-decoration: underline;
 }
 
