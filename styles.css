@@ -26,11 +26,10 @@ h1{
 
 .navbar{
     width: 100%;
+    height: 80px;
     padding: 1rem 5%;
     background: #252323;
-    border-bottom: 1px solid #471616;
-    margin-bottom: 2rem;
-    
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +38,8 @@ h1{
 .nav-links{
     list-style: none;
     display: flex;
-    gap: 0.1rem;
+    gap: clamp(2px, 1vw, 12px);
+    min-width: 0;
 }
 
 .navbar ul{
@@ -47,16 +47,49 @@ h1{
     background-color: #252323;
     padding: 0;
     margin: 0;
+    margin-right: auto;
     overflow: hidden;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .navbar a{
     color: white;
     text-decoration: none;
-    padding: 15px;
+    height: 50px;
+    padding: clamp(5px, 1vw, 15px);
     display: block;
     text-align: center;
+    align-content: center;
     border-radius: 10px;
+    white-space: nowrap;
+    font-size: clamp(12px, 1.2vw, 16px);
+}
+
+.navbar label{
+    height: 50px;
+    padding: clamp(5px, 1vw, 15px);
+    display: flex;
+    margin-left: auto;
+}
+
+.navbar input{
+    border: none;
+    border-radius: 1000px;
+    background-color:rgb(243, 240, 225);
+    padding: 0.8rem;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.navbar input:focus{
+    outline: none;
+}
+
+.navbar label:focus{
+    outline: none;
 }
 
 .navbar a:hover{
@@ -64,10 +97,19 @@ h1{
     transition: 0.3s;
 }
 
+.navbar a:focus{
+    outline:none;
+    background-color: #070606;
+}
+
 .navbar li{
     float: left;
 }
 
+.navbar li:focus{
+    outline: none;
+    background-color: #070606;
+}
 
 .btn:hover{
     background:#070606
@@ -121,9 +163,9 @@ h1{
     /*background-color: #252323;*/
     border: 8px solid black;
     border-radius: 20px;
-    width: max(50%, 600px);
-    height: 600px;
-    display:flex;
+    width: max(40%, 600px);
+    height: calc(100dvh - 140px);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -139,9 +181,9 @@ h1{
     /*background-color: #252323;*/
     border: 8px solid black;
     border-radius: 20px;
-    width: max(50%, 600px);
-    height: 600px;
-    display:flex;
+    width: max(40%, 600px);
+    height: calc(100dvh - 140px);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -163,6 +205,17 @@ h1{
     padding: 0.85em 4em;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.signup-btn:hover{
+    /*border: 2px solid #252323;*/
+    background-color: #56a7c7;
+    transition: 150ms ease;
+}
+
+.signup-btn:focus{
+    outline: none;
+    background-color: #56a7c7;
 }
 
 .signup{
@@ -208,7 +261,7 @@ form label{
 form input{
     border-radius: 0 10px 10px 0;
     border: 2px;
-    border-color: #252323;
+    border-color: #78b9d3;
     border-left: none;
     box-sizing: border-box;
     flex-grow: 1;
@@ -220,7 +273,7 @@ form input{
 }
 
 form input:hover{
-    border: 2px solid #252323;
+    border: 2px solid #78b9d3;
     border-left: none;
 }
 
@@ -230,14 +283,34 @@ form input:focus{
     outline: none;
     border-color: #252323;
 }
+
 div:has(input:focus) > label{
     background-color: #252323;
     border: 2px solid #252323;
     border-right: none;
 }
+
 form input::placeholder{
     color: #252323;
     opacity: 0.8;
 }
 
 
+a{
+    text-decoration: none;
+}
+
+.wrapper a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1100px){
+    .wrapper{
+        width: min(600px, calc(100% - 60px));
+    }
+    .wrapper2{
+        width: min(600px, calc(100% - 60px));
+    }
+}
+
+@import url(cart.css)
