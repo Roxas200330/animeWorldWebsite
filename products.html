@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime World</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/products.css">
 </head>
 
 <body>
@@ -20,25 +20,48 @@
             <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
-
     <main>
-                <h2>Product List</h2>
-                
+    <div id = "hello" class="container">
+                <header></header>
+                <div id = "animes">
+                <label>
+                    Filter by anime:
+                <select class="animes" name="animes">
+                 <option value="One Piece">One Piece</option>
+                 <option value="Jujutsu Kaisen">JJK</option>
+                 <option value="Demon Slayer">Demon Slayer</option>
+                 <option value="Naruto">Naruto</option>
+                 <option value="Gurren Lagann">Gurren Lagann</option>
+                 <option value = "All">Show All</option>
+                </select>
+                </label>    
+                </div>
+                <div id = "merchandise">
+                    <label>
+                        Filter by merchandise:
+                    <select class = "merch" name = "merch">
+                    <option value = "Figure">Figures</option>
+                    <option value = "Clothing">Clothes</option>
+                    <option value = "Props">Props</option>
+                    <option value = "Posters">Posters</option>
+                    <option value = "Accessories">Accessories</option>
+
+                </select>
+                    </label>
+                </div>
+                </div>
                 <div id="product-list" class="product-grid"></div>
                 <p id="cart-count"></p>
                 <p id="Total"></p>
-                <p id="Stock"></p>
-                <p id="In Cart:"></p>
                 <div id="cart-items"></div>
-                <p id="test"></p>
-
-            </section>
-        </main>
+                
+    </main> 
          
         <footer>
             <p>&copy; 2024 Our Website. All rights reserved.</p>
         </footer>
+            <script src="script.js"></script>
 
-        <script src="script.js"></script>
+        </body>
 </html>
     
