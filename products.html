@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime World</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
 </head>
 
 <body>
@@ -27,25 +26,48 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM208-800h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Z"/></svg></a></li>
         </ul>
     </nav>
-
     <main>
-                <h2>Product List</h2>
-                
+    <div id = "hello" class="container">
+                <header></header>
+                <div id = "animes">
+                <label>
+                    Filter by anime:
+                <select class="animes" name="animes">
+                 <option value="One Piece">One Piece</option>
+                 <option value="Jujutsu Kaisen">JJK</option>
+                 <option value="Demon Slayer">Demon Slayer</option>
+                 <option value="Naruto">Naruto</option>
+                 <option value="Gurren Lagann">Gurren Lagann</option>
+                 <option value = "All">Show All</option>
+                </select>
+                </label>    
+                </div>
+                <div id = "merchandise">
+                    <label>
+                        Filter by merchandise:
+                    <select class = "merch" name = "merch">
+                    <option value = "Figure">Figures</option>
+                    <option value = "Clothing">Clothes</option>
+                    <option value = "Props">Props</option>
+                    <option value = "Posters">Posters</option>
+                    <option value = "Accessories">Accessories</option>
+
+                </select>
+                    </label>
+                </div>
+                </div>
                 <div id="product-list" class="product-grid"></div>
                 <p id="cart-count"></p>
                 <p id="Total"></p>
-                <p id="Stock"></p>
-                <p id="In Cart:"></p>
                 <div id="cart-items"></div>
-                <p id="test"></p>
-
-            </section>
-        </main>
+                
+    </main> 
          
         <footer>
             <p>&copy; 2024 Our Website. All rights reserved.</p>
         </footer>
+            <script src="script.js"></script>
 
-        <script src="script.js"></script>
+        </body>
 </html>
     
